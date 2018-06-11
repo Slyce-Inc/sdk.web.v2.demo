@@ -77,7 +77,7 @@ executeWorkflow() opens a WebSocket connection and dispatches a message with pro
 
 ```javascript
 sdk.executeWorkflow(
-    'http://testurl.com/test.jpg', // this can be image File, image Blob, image URL
+    'http://testurl.com/test.jpg', // this can be image File, image URL
     'your_workflow_id',
     {
         onTaskUpdated: function(message){}, 
@@ -110,7 +110,7 @@ sdk.executeWorkflow(
 ```
 
 **Params:**  
-**imageData** - can be an URL pointing to an image or an image File or Blob **(required)**  
+**imageData** - can be an URL pointing to an image or an image File **(required)**  
 **workflowId** - workflow ID to execute (supported Workflow types  are “3D Workflow” and “Universal Workflow”) **(required)**  
 **callbacks** - an object with callback functions to execute on corresponding event { **onTaskUpdated**, **onTaskCompleted** }  
 
