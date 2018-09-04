@@ -77,11 +77,12 @@ executeWorkflow() opens a WebSocket connection and dispatches a message with pro
 
 ```javascript
 sdk.executeWorkflow(
-    'http://testurl.com/test.jpg', // this can be image File, image URL
+    'http://testurl.com/test.jpg', // this can be image File or image URL
     'your_workflow_id',
     {
         onTaskUpdated: function(message){}, 
-        onTaskCompleted: function(results, errors){}
+        onTaskCompleted: function(results, errors){},
+        afterImageProcessed: function(base64) {} // add this callback if you pass File object as imageData. The SDK would process the File, fetch the base64, and rotate the image if needed. Once it's done the SDK would call the it and pass the base64 string
     },
     false
 )
@@ -118,6 +119,20 @@ sdk.executeWorkflow(
 * onTaskCompleted will be fired if the system finished the workflow execution or faced an error
 
 **uiMode** - a boolean that indicates whether an overlay with uploaded image and a loading spinner should appear above all other elements during the workflow execution
+
+**Response:**
+Returns nothing.
+
+##### cancelWorkflowExecution()
+
+cancelWorkflowExecution() closes  currently open WebSocket connection and cancels Workflow execution.
+
+```javascript
+cancelWorkflowExecution()
+```
+
+**Params:**
+No params.
 
 **Response:**
 Returns nothing.

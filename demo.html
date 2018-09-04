@@ -4,13 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>Slyce Web SDK V2 Demo</title>
-    <link rel="icon" type="image/ico" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAAEEfUpiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjNGREUzQjhBRTA0MTExRTNCQkZDRTVFMEVBOThEREYzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjNGREUzQjhCRTA0MTExRTNCQkZDRTVFMEVBOThEREYzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M0ZERTNCODhFMDQxMTFFM0JCRkNFNUUwRUE5OERERjMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6M0ZERTNCODlFMDQxMTFFM0JCRkNFNUUwRUE5OERERjMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz432kwEAAAG+0lEQVR42mL8//8/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
-">
+    <link rel="icon" type="image/ico" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAAEEfUpiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjNGREUzQjhBRTA0MTExRTNCQkZDRTVFMEVBOThEREYzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjNGREUzQjhCRTA0MTExRTNCQkZDRTVFMEVBOThEREYzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M0ZERTNCODhFMDQxMTFFM0JCRkNFNUUwRUE5OERERjMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6M0ZERTNCODlFMDQxMTFFM0JCRkNFNUUwRUE5OERERjMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz432kwEAAAG+0lEQVR42mL8//8/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">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
 
-    <!-- Slyce Web SDK V2 -->
+    <!-- Slyce Web SDK V2 imports -->
     <script type="text/javascript" src="./src/slyce.sdk.js"></script>
     <link rel="stylesheet" href="./src/slyce.ui.css">
 
@@ -58,7 +57,7 @@
                     <div class="list-group">
                         <div class="panel-body">
                             <div class="list-group-item">
-                                <form id="initform" class="" method="">
+                                <form id="initform" class="">
                                     <label for="">
                                         Account ID
                                         <input type="text" name="account_id" value="">
@@ -72,7 +71,7 @@
                                         <input type="text" name="space_id" value="">
                                     </label>
 
-                                    <input class="btn btn-primary" type="submit" name="name" class="btn btn-default" value="Start">
+                                    <input class="btn btn-primary w-25" type="submit" name="name" value="Start">
                                 </form>
                             </div>
                         </div>
@@ -95,7 +94,7 @@
                                     Workflow Id
                                     <input type="text" name="workflow_id" value="">
                                 </label>
-                                <input class="btn btn-primary" type="submit" class="btn btn-default" name="name" value="Execute">
+                                <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Execute">
                             </form>
                         </div>
                         <div class="list-group-item">
@@ -108,8 +107,22 @@
                                     Workflow Id
                                     <input type="text" name="workflow_id" value="">
                                 </label>
-                                <input class="btn btn-primary" type="submit" class="btn btn-default" name="name" value="Execute">
+                                <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Execute">
                             </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="panel panel-default">
+                    <h4 class="panel-heading">Cancel Workflow Execution</h4>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <form class="submitform" id="cancelWorkflowExecution"> 
+                                <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Cancel">
                             </form>
                         </div>
                     </div>
@@ -179,6 +192,9 @@
                             log('task completed: ' + JSON.stringify(results) + '<br><br>' +
                                 JSON.stringify(errors));
                             console.log(results, errors);
+                        },
+                        afterImageProcessed: function (imageData) {
+                            console.log(imageData);
                         }
                     },
                     true
@@ -203,6 +219,11 @@
                         $('#initform input').prop('disabled', false);
                         log('inited error ' + error, 'error');
                     });
+            });
+
+            $('#cancelWorkflowExecution').on('submit', function (event) {
+                event.preventDefault();
+                sdk.cancelWorkflowExecution();
             });
 
         });
