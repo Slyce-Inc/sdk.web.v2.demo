@@ -132,6 +132,36 @@
                 <br>
 
                 <div class="panel panel-default">
+                    <h4 class="panel-heading">Find Similar</h4>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <form class="submitform" id="findSimilar"> 
+                                <label for="">
+                                    Dataset ID
+                                    <input type="text" name="dataset_id" value="">
+                                </label>
+                                <label for="">
+                                    Item ID
+                                    <input type="text" name="item_id" value="">
+                                </label>
+                                <label for="">
+                                    Item Image URL
+                                    <input type="text" name="item_image_url" value="">
+                                </label>
+                                <label for="">
+                                    Settings (use JSON)
+                                    <input type="text" name="settings" value="{}">
+                                </label>
+                                <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Execute">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="panel panel-default">
                     <h4 class="panel-heading">Logger</h4>
                     <div class="list-group" id="log">
                         ...
@@ -224,6 +254,18 @@
             $('#cancelWorkflowExecution').on('submit', function (event) {
                 event.preventDefault();
                 sdk.cancelWorkflowExecution();
+            });
+
+            $('#findSimilar').on('submit', function (event) {
+                event.preventDefault();
+                var item_id = $(this).find('[name="item_id"]').val();
+                var dataset_id = $(this).find('[name="dataset_id"]').val();
+                var item_image_url = $(this).find('[name="item_image_url"]').val();
+                var settings = $(this).find('[name="settings"]').val();
+
+                sdk.findSimilar(dataset_id, item_id, null, JSON.parse(settings))
+                    .then(response => console.log(response))
+                    .catch(e => console.log(e));
             });
 
         });

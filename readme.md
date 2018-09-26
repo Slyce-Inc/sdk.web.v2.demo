@@ -18,7 +18,7 @@ Copy/paste the following HTML code into the page you created.
 **Note:** Adding the CSS file is optional if you don't want to use the "UI Mode".
 
 ```html
-<script type="text/javascript" src="https://cdn.slyce.it/websdk/v2.1.0/slyce.sdk.gz.js"></script>
+<script type="text/javascript" src="https://cdn.slyce.it/websdk/v2.x/slyce.sdk.gz.js"></script>
 <!-- Adding the CSS file is optional if you don't want to use the "UI Mode" -->
 <link rel="stylesheet" href="https://cdn.slyce.it/websdk/v2.1.0/slyce.ui.css">
 ```
@@ -125,10 +125,10 @@ Returns nothing.
 
 ##### cancelWorkflowExecution()
 
-cancelWorkflowExecution() closes  currently open WebSocket connection and cancels Workflow execution.
+cancelWorkflowExecution() closes currently open WebSocket connection and cancels Workflow execution.
 
 ```javascript
-cancelWorkflowExecution()
+sdk.cancelWorkflowExecution()
 ```
 
 **Params:**
@@ -136,3 +136,21 @@ No params.
 
 **Response:**
 Returns nothing.
+
+##### findSimilar()
+
+findSimilar() searches for items similar to the given item in the given dataset.
+In order the findSimilar() to work itemId or itemImageUrl (or both) should be provided.
+
+```javascript
+sdk.findSimilar(datasetId, itemId, itemImageUrl, settings);
+```
+
+**Params:**
+**datasetId** - dataset ID against which the search chould happen **(required)**  
+**itemId** - ID of the target item (note: itemId is required if itemImageUrl is not provided)
+**itemImageUrl** - image URL of the target item (note: itemImageUrl is required if itemId is not provided)
+**settings** - a settings object
+
+**Response:**
+Method returns a native Promise containing information about items found.
