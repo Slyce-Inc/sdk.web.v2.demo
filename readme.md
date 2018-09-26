@@ -84,7 +84,7 @@ sdk.executeWorkflow(
     {
         onTaskUpdated: function(message){}, 
         onTaskCompleted: function(results, errors){},
-        afterImageProcessed: function(base64) {} // add this callback if you pass File object as imageData. The SDK would process the File, fetch the base64, and rotate the image if needed. Once it's done the SDK would call the it and pass the base64 string
+        afterImageProcessed: function(base64) {} // add this callback if you pass File object as imageData. The SDK would process the File, fetch the base64, and rotate the image if needed. Once it's done the SDK would call it and pass the base64 string
     },
     false
 )
@@ -120,7 +120,7 @@ sdk.executeWorkflow(
 * onTaskUpdated will be fired each time the Slyce system has an update, unless the operation has been completed
 * onTaskCompleted will be fired if the system finished the workflow execution or faced an error
 
-**uiMode** - a boolean that indicates whether an overlay with uploaded image and a loading spinner should appear above all other elements during the workflow execution. **Please note that you should not alter the overlay styles or behavior as the provided layout may change over time. Please implement a custom loading screen if you need unique experience**
+**uiMode** - a boolean that indicates whether an overlay with uploaded image and a loading spinner should appear above all other elements during the workflow execution. **Please note that you should not alter the overlay styles or behavior as the provided layout may change over time.** Implement a custom loading screen if you need an unique experience
 
 **Response:**
 Returns nothing.
