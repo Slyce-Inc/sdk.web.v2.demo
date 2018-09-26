@@ -12,6 +12,8 @@ Slyce Web SDK V2 constantly gathers useful event analytics related to Slyce Work
 
 Demo page: [https://slyce-inc.github.io/sdk.web.v2.demo/demo](https://slyce-inc.github.io/sdk.web.v2.demo/demo)
 
+Another demo app to play with [https://github.com/Slyce-Inc/sdk.web.v2.simple-demo-app](https://github.com/Slyce-Inc/sdk.web.v2.simple-demo-app)
+
 ### Setup
 
 Copy/paste the following HTML code into the page you created.  
@@ -118,7 +120,7 @@ sdk.executeWorkflow(
 * onTaskUpdated will be fired each time the Slyce system has an update, unless the operation has been completed
 * onTaskCompleted will be fired if the system finished the workflow execution or faced an error
 
-**uiMode** - a boolean that indicates whether an overlay with uploaded image and a loading spinner should appear above all other elements during the workflow execution
+**uiMode** - a boolean that indicates whether an overlay with uploaded image and a loading spinner should appear above all other elements during the workflow execution. **Please note that you should not alter the overlay styles or behavior as the provided layout may change over time. Please implement a custom loading screen if you need unique experience**
 
 **Response:**
 Returns nothing.
