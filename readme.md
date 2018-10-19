@@ -22,7 +22,7 @@ Copy/paste the following HTML code into the page you created.
 ```html
 <script type="text/javascript" src="https://cdn.slyce.it/websdk/v2.x/slyce.sdk.gz.js"></script>
 <!-- Adding the CSS file is optional if you don't want to use the "UI Mode" -->
-<link rel="stylesheet" href="https://cdn.slyce.it/websdk/v2.1.0/slyce.ui.css">
+<link rel="stylesheet" href="https://cdn.slyce.it/websdk/v2.x/slyce.ui.css">
 ```
 
 Now an SDK instance can be created.
@@ -156,3 +156,17 @@ sdk.findSimilar(datasetId, itemId, itemImageUrl, settings);
 
 **Response:**
 Method returns a native Promise containing information about items found.
+
+##### dispatchAnalyticsEvents()
+
+dispatchAnalyticsEvents() invokes an XMLHttpRequest and sends all Slyce Analytics events that were queued at the moment. The SDK tracks analytics events and send them to the server each 30 seconds then the queue would be cleared and new iteration of tracking starts. You may want to use this method to send the remaining analytics events (the last iteration) before redirecting to another page or before user closes the browser tab.
+
+```javascript
+sdk.dispatchAnalyticsEvents();
+```
+
+**Params:**
+No params.
+
+**Response:**
+Method returns a native Promise.

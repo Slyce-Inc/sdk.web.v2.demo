@@ -10,8 +10,8 @@
         crossorigin="anonymous">
 
     <!-- Slyce Web SDK V2 imports -->
-    <script type="text/javascript" src="./src/slyce.sdk.js"></script>
-    <link rel="stylesheet" href="./src/slyce.ui.css">
+    <script type="text/javascript" src="../dist/slyce.sdk.js"></script>
+    <link rel="stylesheet" href="../dist/slyce.ui.css">
 
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <style media="screen">
@@ -57,18 +57,18 @@
                     <div class="list-group">
                         <div class="panel-body">
                             <div class="list-group-item">
-                                <form id="initform" class="">
+                                <form id="initform" class="" method="post">
                                     <label for="">
                                         Account ID
-                                        <input type="text" name="account_id" value="">
+                                        <input type="text" name="account_id" value="slycedemo">
                                     </label>
                                     <label for="">
                                         API Key
-                                        <input type="text" name="api_key" value="">
+                                        <input type="text" name="api_key" value="L9VT1RPiWGBFgHEAH7hgFGeDnZgdBPWL5aCT3zH0JZ0">
                                     </label>
                                     <label for="">
                                         Space ID
-                                        <input type="text" name="space_id" value="">
+                                        <input type="text" name="space_id" value="DiiCp2Y2hLyEwggtX4km84">
                                     </label>
 
                                     <input class="btn btn-primary w-25" type="submit" name="name" value="Start">
@@ -92,7 +92,7 @@
                                 </label>
                                 <label for="">
                                     Workflow Id
-                                    <input type="text" name="workflow_id" value="">
+                                    <input type="text" name="workflow_id" value="8qHmYrvaaVyUyWQMifN2o8">
                                 </label>
                                 <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Execute">
                             </form>
@@ -105,10 +105,9 @@
                                 </label>
                                 <label for="">
                                     Workflow Id
-                                    <input type="text" name="workflow_id" value="">
+                                    <input type="text" name="workflow_id" value="8qHmYrvaaVyUyWQMifN2o8">
                                 </label>
                                 <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Execute">
-                            </form>
                             </form>
                         </div>
                     </div>
@@ -132,13 +131,27 @@
                 <br>
 
                 <div class="panel panel-default">
+                    <h4 class="panel-heading">Dispatch Analytics Events</h4>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <form class="submitform" id="dispatchAnalyticsEvents"> 
+                                <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Dispatch">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="panel panel-default">
                     <h4 class="panel-heading">Find Similar</h4>
                     <div class="list-group">
                         <div class="list-group-item">
                             <form class="submitform" id="findSimilar"> 
                                 <label for="">
                                     Dataset ID
-                                    <input type="text" name="dataset_id" value="">
+                                    <input type="text" name="dataset_id" value="JKu34SQSxP5PWkaUMXE5w7">
                                 </label>
                                 <label for="">
                                     Item ID
@@ -181,6 +194,7 @@
         function log(text, type) {
             $('#log').append("<div class='list-group-item text-" + type + "'>" + text + "</div>");
         }
+
         $(document).ready(function () {
             $('.submitform input').prop('disabled', true);
 
@@ -255,6 +269,13 @@
                 event.preventDefault();
                 sdk.cancelWorkflowExecution();
             });
+
+              $('#dispatchAnalyticsEvents').on('submit', function (event) {
+                 event.preventDefault();
+                 sdk.dispatchAnalyticsEvents().then(function(response){
+                    console.log(response);
+                 });
+             });
 
             $('#findSimilar').on('submit', function (event) {
                 event.preventDefault();
