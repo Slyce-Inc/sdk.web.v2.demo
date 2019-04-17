@@ -150,20 +150,20 @@
                         <div class="list-group-item">
                             <form class="submitform" id="findSimilar"> 
                                 <label for="">
-                                    Dataset ID
-                                    <input type="text" name="dataset_id" value="JKu34SQSxP5PWkaUMXE5w7">
+                                    Workflow ID
+                                    <input type="text" name="workflow_id" value="f8GeavK4BbSvtcDYwX7XNY">
                                 </label>
                                 <label for="">
                                     Item ID
-                                    <input type="text" name="item_id" value="">
+                                    <input type="text" name="item_id" value="slyce_example_1">
                                 </label>
                                 <label for="">
-                                    Item Image URL
-                                    <input type="text" name="item_image_url" value="">
+                                    Item Image URL (optional if Item ID passed)
+                                    <input type="text" name="item_image_url" value="https://cdn.slyce.it/sample_dataset/slyce-logo-1.jpg">
                                 </label>
                                 <label for="">
-                                    Settings (use JSON)
-                                    <input type="text" name="settings" value="{}">
+                                    Workflow Options (optional. example {"color": "red"})
+                                    <input type="text" name="workflow_options" value='{}'>
                                 </label>
                                 <input class="btn btn-primary w-25 d-inline" type="submit" name="name" value="Execute">
                             </form>
@@ -280,12 +280,19 @@
             $('#findSimilar').on('submit', function (event) {
                 event.preventDefault();
                 var item_id = $(this).find('[name="item_id"]').val();
-                var dataset_id = $(this).find('[name="dataset_id"]').val();
+                var workflow_id = $(this).find('[name="workflow_id"]').val();
                 var item_image_url = $(this).find('[name="item_image_url"]').val();
-                var settings = $(this).find('[name="settings"]').val();
+                var workflow_options = $(this).find('[name="workflow_options"]').val();
 
-                sdk.findSimilar(dataset_id, item_id, null, JSON.parse(settings))
-                    .then(response => console.log(response))
+                sdk.findSimilar(workflow_id, {
+                    id: item_id,
+                    imageUrl: item_image_url,
+                    workflowOptions: JSON.parse(workflow_options)
+                })
+                    .then(response => {
+                        log('Find Similar response: ' + JSON.stringify(response));
+                        console.log(response);
+                    })
                     .catch(e => console.log(e));
             });
 

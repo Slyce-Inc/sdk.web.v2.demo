@@ -145,14 +145,30 @@ findSimilar() searches for items similar to the given item in the given dataset.
 In order the findSimilar() to work itemId or itemImageUrl (or both) should be provided.
 
 ```javascript
-sdk.findSimilar(datasetId, itemId, itemImageUrl, settings);
+sdk.findSimilar(datasetId, item);
 ```
 
 **Params:**
-**datasetId** - dataset ID against which the search chould happen **(required)**  
-**itemId** - ID of the target item (note: itemId is required if itemImageUrl is not provided)
-**itemImageUrl** - image URL of the target item (note: itemImageUrl is required if itemId is not provided)
-**settings** - a settings object
+**workflowId** - ID of Find Similar workflow **(required)**  
+**item** - an object containing information about target item
+```
+// item
+{
+    id: "", // ID of the source item
+    imageUrl: "", // image URL can be passed instead of image ID (optional if id passed)
+    workflowOptions: {} // key value pairs of workflow options (optional)
+}
+```
+Item object example:
+```
+{
+    id: ""slyce_example_1"",
+    imageUrl: "https://cdn.slyce.it/sample_dataset/slyce-logo-1.jpg",
+    workflowOptions: {
+        color: "red"
+    }
+}
+```
 
 **Response:**
 Method returns a native Promise containing information about items found.
