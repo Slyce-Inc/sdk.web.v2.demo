@@ -146,7 +146,7 @@ findSimilar() searches for items similar to the given item in the given dataset.
 In order the findSimilar() to work itemId or itemImageUrl (or both) should be provided.
 
 ```javascript
-sdk.findSimilar(datasetId, item);
+sdk.findSimilar(workflowId, item);
 ```
 
 **Params:**
