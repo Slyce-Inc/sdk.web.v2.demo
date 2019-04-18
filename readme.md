@@ -84,7 +84,7 @@ sdk.executeWorkflow(
     {
         onTaskUpdated: function(message){}, 
         onTaskCompleted: function(results, errors){},
-        afterImageProcessed: function(base64) {} // add this callback if you pass File object as imageData. The SDK would process the File, fetch the base64, and rotate the image if needed. Once it's done the SDK would call it and pass the base64 string
+        afterImageProcessed: function(base64) {}
     },
     false
 )
@@ -115,10 +115,11 @@ sdk.executeWorkflow(
 **Params:**  
 **imageData** - can be an URL pointing to an image or an image File **(required)**  
 **workflowId** - workflow ID to execute (supported Workflow types  are “3D Workflow” and “Universal Workflow”) **(required)**  
-**callbacks** - an object with callback functions to execute on corresponding event { **onTaskUpdated**, **onTaskCompleted** }  
+**callbacks** - an object with callback functions to execute on corresponding event { **onTaskUpdated**, **onTaskCompleted**, **afterImageProcessed** }  
 
 * onTaskUpdated will be fired each time the Slyce system has an update, unless the operation has been completed
 * onTaskCompleted will be fired if the system finished the workflow execution or faced an error
+* afterImageProcessed use this callback if you pass File object as imageData. The SDK would process the File, fetch the base64, and rotate the image if needed. Once it's done the SDK would pass the base64 string back so you can use it in your UI
 
 **uiMode** - a boolean that indicates whether an overlay with uploaded image and a loading spinner should appear above all other elements during the workflow execution. **Please note that you should not alter the overlay styles or behavior as the provided layout may change over time.** Implement a custom loading screen if you need an unique experience
 
@@ -172,17 +173,3 @@ Item object example:
 
 **Response:**
 Method returns a native Promise containing information about items found.
-
-##### dispatchAnalyticsEvents()
-
-dispatchAnalyticsEvents() invokes an XMLHttpRequest and sends all Slyce Analytics events that were queued at the moment. The SDK tracks analytics events and send them to the server each 30 seconds then the queue would be cleared and new iteration of tracking starts. You may want to use this method to send the remaining analytics events (the last iteration) before redirecting to another page or before user closes the browser tab.
-
-```javascript
-sdk.dispatchAnalyticsEvents();
-```
-
-**Params:**
-No params.
-
-**Response:**
-Method returns a native Promise.
