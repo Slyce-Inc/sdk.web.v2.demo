@@ -143,7 +143,7 @@ Returns nothing.
 ##### findSimilar()
 
 findSimilar() searches for items similar to the given using the Workflow ID.
-In order the findSimilar() to work item ID or item Image Url should be provided in item object.
+In order the findSimilar() to work item id or item imageUrl should be provided in item object.
 
 ```javascript
 sdk.findSimilar(workflowId, item);
