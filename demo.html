@@ -10,8 +10,8 @@
         crossorigin="anonymous">
 
     <!-- Slyce Web SDK V2 imports -->
-    <script type="text/javascript" src="./src/slyce.sdk.js"></script>
-    <link rel="stylesheet" href="./src/slyce.ui.css">
+    <script type="text/javascript" src="https://cdn.slyce.it/websdk/v2.x/slyce.sdk.js"></script>
+    <link rel="stylesheet" href="https://cdn.slyce.it/websdk/v2.x/slyce.ui.css">
 
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <style media="screen">
@@ -289,11 +289,11 @@
                     imageUrl: item_image_url,
                     workflowOptions: JSON.parse(workflow_options)
                 })
-                    .then(response => {
+                    .then(function(response) {
                         log('Find Similar response: ' + JSON.stringify(response));
                         console.log(response);
                     })
-                    .catch(e => console.log(e));
+                    .catch(function(e){ console.log(e) });
             });
 
         });
